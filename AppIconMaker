@@ -1,0 +1,172 @@
+#!bin/bash
+# make app icons for Xcode iOS app
+
+echo Enter the icon file name
+read Input
+
+base=${Input##*/}
+path=${Input%/*}
+IconName=${base%.*}
+ext=${base##*.}
+
+
+cd $path
+
+mkdir AppIcon.appiconset 
+touch AppIcon.appiconset/Contents.json 
+
+#sleep 0.5 
+
+echo "{" >> $path/AppIcon.appiconset/Contents.json 
+echo "  \"images\" : [" >> $path/AppIcon.appiconset/Contents.json 
+
+magick convert $IconName.$ext -resize 40x40 AppIcon.appiconset/$IconName-0.$ext
+echo "       {" >> AppIcon.appiconset/Contents.json
+echo "           \"filename\" : \"$IconName-0.$ext\"," >> AppIcon.appiconset/Contents.json
+echo "           \"idiom\" : \"iphone\"," >> AppIcon.appiconset/Contents.json
+echo "           \"scale\" : \"2x\"," >> AppIcon.appiconset/Contents.json
+echo "           \"size\" : \"20x20\"" >> AppIcon.appiconset/Contents.json
+echo "       }," >> AppIcon.appiconset/Contents.json
+
+magick convert $IconName.$ext -resize 60x60 AppIcon.appiconset/$IconName-1.$ext
+echo "       {" >> AppIcon.appiconset/Contents.json
+echo "           \"filename\" : \"$IconName-1.$ext\"," >> AppIcon.appiconset/Contents.json
+echo "           \"idiom\" : \"iphone\"," >> AppIcon.appiconset/Contents.json
+echo "           \"scale\" : \"3x\"," >> AppIcon.appiconset/Contents.json
+echo "           \"size\" : \"20x20\"" >> AppIcon.appiconset/Contents.json
+echo "       }," >> AppIcon.appiconset/Contents.json
+
+magick convert $IconName.$ext -resize 58x58 AppIcon.appiconset/$IconName-2.$ext
+echo "       {" >> AppIcon.appiconset/Contents.json
+echo "           \"filename\" : \"$IconName-2.$ext\"," >> AppIcon.appiconset/Contents.json
+echo "           \"idiom\" : \"iphone\"," >> AppIcon.appiconset/Contents.json
+echo "           \"scale\" : \"2x\"," >> AppIcon.appiconset/Contents.json
+echo "           \"size\" : \"29x29\"" >> AppIcon.appiconset/Contents.json
+echo "       }," >> AppIcon.appiconset/Contents.json
+
+magick convert $IconName.$ext -resize 87x87 AppIcon.appiconset/$IconName-3.$ext
+echo "       {" >> AppIcon.appiconset/Contents.json
+echo "           \"filename\" : \"$IconName-3.$ext\"," >> AppIcon.appiconset/Contents.json
+echo "           \"idiom\" : \"iphone\"," >> AppIcon.appiconset/Contents.json
+echo "           \"scale\" : \"3x\"," >> AppIcon.appiconset/Contents.json
+echo "           \"size\" : \"29x29\"" >> AppIcon.appiconset/Contents.json
+echo "       }," >> AppIcon.appiconset/Contents.json
+
+magick convert $IconName.$ext -resize 80x80 AppIcon.appiconset/$IconName-4.$ext
+echo "       {" >> AppIcon.appiconset/Contents.json
+echo "           \"filename\" : \"$IconName-4.$ext\"," >> AppIcon.appiconset/Contents.json
+echo "           \"idiom\" : \"iphone\"," >> AppIcon.appiconset/Contents.json
+echo "           \"scale\" : \"2x\"," >> AppIcon.appiconset/Contents.json
+echo "           \"size\" : \"40x40\"" >> AppIcon.appiconset/Contents.json
+echo "       }," >> AppIcon.appiconset/Contents.json
+
+magick convert $IconName.$ext -resize 120x120 AppIcon.appiconset/$IconName-5.$ext
+echo "       {" >> AppIcon.appiconset/Contents.json
+echo "           \"filename\" : \"$IconName-5.$ext\"," >> AppIcon.appiconset/Contents.json
+echo "           \"idiom\" : \"iphone\"," >> AppIcon.appiconset/Contents.json
+echo "           \"scale\" : \"3x\"," >> AppIcon.appiconset/Contents.json
+echo "           \"size\" : \"40x40\"" >> AppIcon.appiconset/Contents.json
+echo "       }," >> AppIcon.appiconset/Contents.json
+
+magick convert $IconName.$ext -resize 120x120 AppIcon.appiconset/$IconName-6.$ext
+echo "       {" >> AppIcon.appiconset/Contents.json
+echo "           \"filename\" : \"$IconName-6.$ext\"," >> AppIcon.appiconset/Contents.json
+echo "           \"idiom\" : \"iphone\"," >> AppIcon.appiconset/Contents.json
+echo "           \"scale\" : \"2x\"," >> AppIcon.appiconset/Contents.json
+echo "           \"size\" : \"60x60\"" >> AppIcon.appiconset/Contents.json
+echo "       }," >> AppIcon.appiconset/Contents.json
+
+magick convert $IconName.$ext -resize 180x180 AppIcon.appiconset/$IconName-7.$ext
+echo "       {" >> AppIcon.appiconset/Contents.json
+echo "           \"filename\" : \"$IconName-7.$ext\"," >> AppIcon.appiconset/Contents.json
+echo "           \"idiom\" : \"iphone\"," >> AppIcon.appiconset/Contents.json
+echo "           \"scale\" : \"3x\"," >> AppIcon.appiconset/Contents.json
+echo "           \"size\" : \"60x60\"" >> AppIcon.appiconset/Contents.json
+echo "       }," >> AppIcon.appiconset/Contents.json
+
+magick convert $IconName.$ext -resize 20x20 AppIcon.appiconset/$IconName-8.$ext
+echo "       {" >> AppIcon.appiconset/Contents.json
+echo "           \"filename\" : \"$IconName-8.$ext\"," >> AppIcon.appiconset/Contents.json
+echo "           \"idiom\" : \"ipad\"," >> AppIcon.appiconset/Contents.json
+echo "           \"scale\" : \"1x\"," >> AppIcon.appiconset/Contents.json
+echo "           \"size\" : \"20x20\"" >> AppIcon.appiconset/Contents.json
+echo "       }," >> AppIcon.appiconset/Contents.json
+
+magick convert $IconName.$ext -resize 40x40 AppIcon.appiconset/$IconName-9.$ext
+echo "       {" >> AppIcon.appiconset/Contents.json
+echo "           \"filename\" : \"$IconName-9.$ext\"," >> AppIcon.appiconset/Contents.json
+echo "           \"idiom\" : \"ipad\"," >> AppIcon.appiconset/Contents.json
+echo "           \"scale\" : \"2x\"," >> AppIcon.appiconset/Contents.json
+echo "           \"size\" : \"20x20\"" >> AppIcon.appiconset/Contents.json
+echo "       }," >> AppIcon.appiconset/Contents.json
+
+magick convert $IconName.$ext -resize 29x29 AppIcon.appiconset/$IconName-10.$ext
+echo "       {" >> AppIcon.appiconset/Contents.json
+echo "           \"filename\" : \"$IconName-10.$ext\"," >> AppIcon.appiconset/Contents.json
+echo "           \"idiom\" : \"ipad\"," >> AppIcon.appiconset/Contents.json
+echo "           \"scale\" : \"1x\"," >> AppIcon.appiconset/Contents.json
+echo "           \"size\" : \"29x29\"" >> AppIcon.appiconset/Contents.json
+echo "       }," >> AppIcon.appiconset/Contents.json
+
+magick convert $IconName.$ext -resize 58x58 AppIcon.appiconset/$IconName-11.$ext
+echo "       {" >> AppIcon.appiconset/Contents.json
+echo "           \"filename\" : \"$IconName-11.$ext\"," >> AppIcon.appiconset/Contents.json
+echo "           \"idiom\" : \"ipad\"," >> AppIcon.appiconset/Contents.json
+echo "           \"scale\" : \"2x\"," >> AppIcon.appiconset/Contents.json
+echo "           \"size\" : \"29x29\"" >> AppIcon.appiconset/Contents.json
+echo "       }," >> AppIcon.appiconset/Contents.json
+
+magick convert $IconName.$ext -resize 40x40 AppIcon.appiconset/$IconName-12.$ext
+echo "       {" >> AppIcon.appiconset/Contents.json
+echo "           \"filename\" : \"$IconName-12.$ext\"," >> AppIcon.appiconset/Contents.json
+echo "           \"idiom\" : \"ipad\"," >> AppIcon.appiconset/Contents.json
+echo "           \"scale\" : \"1x\"," >> AppIcon.appiconset/Contents.json
+echo "           \"size\" : \"40x40\"" >> AppIcon.appiconset/Contents.json
+echo "       }," >> AppIcon.appiconset/Contents.json
+
+magick convert $IconName.$ext -resize 80x80 AppIcon.appiconset/$IconName-13.$ext
+echo "       {" >> AppIcon.appiconset/Contents.json
+echo "           \"filename\" : \"$IconName-13.$ext\"," >> AppIcon.appiconset/Contents.json
+echo "           \"idiom\" : \"ipad\"," >> AppIcon.appiconset/Contents.json
+echo "           \"scale\" : \"2x\"," >> AppIcon.appiconset/Contents.json
+echo "           \"size\" : \"40x40\"" >> AppIcon.appiconset/Contents.json
+echo "       }," >> AppIcon.appiconset/Contents.json
+
+magick convert $IconName.$ext -resize 76x76 AppIcon.appiconset/$IconName-14.$ext
+echo "       {" >> AppIcon.appiconset/Contents.json
+echo "           \"filename\" : \"$IconName-14.$ext\"," >> AppIcon.appiconset/Contents.json
+echo "           \"idiom\" : \"ipad\"," >> AppIcon.appiconset/Contents.json
+echo "           \"scale\" : \"1x\"," >> AppIcon.appiconset/Contents.json
+echo "           \"size\" : \"76x76\"" >> AppIcon.appiconset/Contents.json
+echo "       }," >> AppIcon.appiconset/Contents.json
+
+magick convert $IconName.$ext -resize 152x152 AppIcon.appiconset/$IconName-15.$ext
+echo "       {" >> AppIcon.appiconset/Contents.json
+echo "           \"filename\" : \"$IconName-15.$ext\"," >> AppIcon.appiconset/Contents.json
+echo "           \"idiom\" : \"ipad\"," >> AppIcon.appiconset/Contents.json
+echo "           \"scale\" : \"2x\"," >> AppIcon.appiconset/Contents.json
+echo "           \"size\" : \"76x76\"" >> AppIcon.appiconset/Contents.json
+echo "       }," >> AppIcon.appiconset/Contents.json
+
+magick convert $IconName.$ext -resize 167x167 AppIcon.appiconset/$IconName-16.$ext
+echo "       {" >> AppIcon.appiconset/Contents.json
+echo "           \"filename\" : \"$IconName-16.$ext\"," >> AppIcon.appiconset/Contents.json
+echo "           \"idiom\" : \"ipad\"," >> AppIcon.appiconset/Contents.json
+echo "           \"scale\" : \"2x\"," >> AppIcon.appiconset/Contents.json
+echo "           \"size\" : \"83.5x83.5\"" >> AppIcon.appiconset/Contents.json
+echo "       }," >> AppIcon.appiconset/Contents.json
+
+magick convert $IconName.$ext -resize 1024x1024 AppIcon.appiconset/$IconName.$ext
+echo "       {" >> AppIcon.appiconset/Contents.json
+echo "           \"filename\" : \"$IconName.$ext\"," >> AppIcon.appiconset/Contents.json
+echo "           \"idiom\" : \"ios-marketing\"," >> AppIcon.appiconset/Contents.json
+echo "           \"scale\" : \"1x\"," >> AppIcon.appiconset/Contents.json
+echo "           \"size\" : \"1024x1024\"" >> AppIcon.appiconset/Contents.json
+echo "       }" >> AppIcon.appiconset/Contents.json
+
+echo "  ]," >> AppIcon.appiconset/Contents.json
+echo "  \"info\" : {" >> AppIcon.appiconset/Contents.json
+echo "      \"author\" : \"xcode\"," >> AppIcon.appiconset/Contents.json
+echo "      \"version\" : 1" >> AppIcon.appiconset/Contents.json
+echo "  }" >> AppIcon.appiconset/Contents.json
+echo "}" >> AppIcon.appiconset/Contents.json
