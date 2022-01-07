@@ -1,0 +1,37 @@
+#!/bin/bash
+# Clean Mac logs and caches
+
+#user cache file
+echo "cleaning user cache file from ~/Library/Caches"
+rm -rf ~/Library/Caches/*
+
+#user logs
+echo "cleaning user log file from ~/Library/Logs"
+rm -rf ~/Library/Logs/*
+
+#system caches
+echo "cleaning system caches"
+sudo rm -rf /Library/Caches/*
+
+#system logs
+echo "cleaning system logs from /Library/Logs"
+sudo rm -rf /Library/Logs/*
+echo "cleaning system logs from /var/log"
+sudo rm -rf /var/log/*
+echo "cleaning from /private/var/folders"
+sudo rm -rf /private/var/folders/*
+
+#ios photo caches
+echo "cleaning ios photo caches"
+rm -rf ~/Pictures/iPhoto\ Library/iPod\ Photo\ Cache/*
+
+#application caches
+echo "cleaning application caches"
+for x in $(ls ~/Library/Containers/) 
+do 
+    echo "cleaning ~/Library/Containers/$x/Data/Library/Caches/"
+    rm -rf ~/Library/Containers/$x/Data/Library/Caches/*
+done
+
+echo 
+echo "Cache cleanup process completed"
