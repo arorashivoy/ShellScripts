@@ -17,3 +17,15 @@ _Do not_ use this script regularly as it might affect your computer's speed.
 It is recommended to use this script after a year or so to remove all the cache that has built up but was never deleted.  
 
 ---
+
+## Kanaka.zsh-theme
+This is my theme for oh-my-zsh  
+It is a modification of agnoster theme
+
+**Dependencies**
+* oh my zsh
+:   Github repo: https://github.com/ohmyzsh/ohmyzsh
+* nerd font
+:   This font can be installed on mac by `brew install homebrew/cask-fonts/font-hack-nerd-font`
+
+---
