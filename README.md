@@ -24,9 +24,9 @@ It is a modification of agnoster theme
 
 **Dependencies**
 * oh my zsh
-:   Github repo: https://github.com/ohmyzsh/ohmyzsh
+  * Github repo: https://github.com/ohmyzsh/ohmyzsh
 * nerd font
-:   This font can be installed on mac by `brew install homebrew/cask-fonts/font-hack-nerd-font`  
-:   You have to set `Hack nerd font` as your terminal font
+  * This font can be installed on mac by `brew install homebrew/cask-fonts/font-hack-nerd-font`  
+  * You have to set `Hack nerd font` as your terminal font
 
 ---
