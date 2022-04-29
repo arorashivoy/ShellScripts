@@ -33,5 +33,9 @@ do
     rm -rf ~/Library/Containers/$x/Data/Library/Caches/*
 done
 
+# Cleaning up brew cache
+echo "cleaning brew cache"
+brew cleanup
+
 echo 
 echo "Cache cleanup process completed"
