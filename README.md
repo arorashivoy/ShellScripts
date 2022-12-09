@@ -30,3 +30,9 @@ It is a modification of agnoster theme
   * You have to set `Hack nerd font` as your terminal font
 
 ---
+
+## [Spam.scpt](Spam.scpt)
+This is a AppleScript script to spam a sentence to your friends.
+It works my typing the specific text that you put in the script and then pressing enter to send it.
+
+---
