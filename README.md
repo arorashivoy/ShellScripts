@@ -2,7 +2,7 @@
 This repository contains all my shell scripts for automation.
 
 ---
-## App Icon Maker
+## [App Icon Maker](AppIconMaker)
 This script makes a .appiconset directory that contains all the files necessary for Xcode iOS app icon 
 
 **Dependencies**
@@ -18,7 +18,7 @@ It is recommended to use this script after a year or so to remove all the cache 
 
 ---
 
-## Kanaka.zsh-theme
+## [Kanaka.zsh-theme](Kanaka.zsh-theme)
 This is my theme for oh-my-zsh  
 It is a modification of agnoster theme
 
