@@ -9,7 +9,7 @@ This script makes a .appiconset directory that contains all the files necessary 
 * imagemagick  
 ---
 
-## Clean Mac Cache  
+## [Clean Mac Cache](CleanMacCache)
 This script cleans all the caches and logs files from your **Mac** which are not necessary but take up a lot of space on your computer.  
 
 _Do not_ use this script regularly as it might affect your computer's speed.   
@@ -18,7 +18,7 @@ It is recommended to use this script after a year or so to remove all the cache 
 
 ---
 
-## [Kanaka.zsh-theme](Kanaka.zsh-theme)
+## [Kanaka.zsh-theme](kanaka.zsh-theme)
 This is my theme for oh-my-zsh  
 It is a modification of agnoster theme
 
