@@ -16,6 +16,9 @@ _Do not_ use this script regularly as it might affect your computer's speed.
 
 It is recommended to use this script after a year or so to remove all the cache that has built up but was never deleted.  
 
+It asks for confirmation before deleting anything. Pass `--dry-run` to print every
+command it would run without running them, or `--yes` to skip the prompt.  
+
 ---
 
 ## [Kanaka.zsh-theme](kanaka.zsh-theme)
@@ -31,8 +34,3 @@ It is a modification of agnoster theme
 
 ---
 
-## [Spam.scpt](Spam.scpt)
-This is a AppleScript script to spam a sentence to your friends.
-It works my typing the specific text that you put in the script and then pressing enter to send it.
-
----
