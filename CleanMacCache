@@ -1,41 +1,83 @@
 #!/bin/bash
 # Clean Mac logs and caches
 
+set -u
+
+DRY_RUN=0
+ASSUME_YES=0
+for arg in "$@"; do
+    case "$arg" in
+        -n|--dry-run) DRY_RUN=1 ;;
+        -y|--yes) ASSUME_YES=1 ;;
+        -h|--help)
+            echo "usage: CleanMacCache [-n|--dry-run] [-y|--yes]"
+            exit 0
+            ;;
+        *)
+            echo "unknown argument: $arg" >&2
+            exit 2
+            ;;
+    esac
+done
+
+# Every removal goes through here so dry-run cannot be bypassed by adding a line below.
+run() {
+    if [ "$DRY_RUN" -eq 1 ]; then
+        echo "  would run: $*"
+    else
+        "$@"
+    fi
+}
+
+if [ "$DRY_RUN" -eq 0 ] && [ "$ASSUME_YES" -eq 0 ]; then
+    cat <<'WARN'
+This deletes user and system caches and logs, including /var/log and
+/private/var/folders. Deleted logs are not recoverable, and clearing
+/private/var/folders while applications are running can destabilise them
+until you reboot. Re-run with --dry-run to see the commands first.
+WARN
+    printf 'Continue? [y/N] '
+    read -r reply
+    case "$reply" in
+        [yY]|[yY][eE][sS]) ;;
+        *) echo "Aborted."; exit 1 ;;
+    esac
+fi
+
 #user cache file
 echo "cleaning user cache file from ~/Library/Caches"
-rm -rf ~/Library/Caches/*
+run rm -rf ~/Library/Caches/*
 
 #user logs
 echo "cleaning user log file from ~/Library/Logs"
-rm -rf ~/Library/Logs/*
+run rm -rf ~/Library/Logs/*
 
 #system caches
 echo "cleaning system caches"
-sudo rm -rf /Library/Caches/*
+run sudo rm -rf /Library/Caches/*
 
 #system logs
 echo "cleaning system logs from /Library/Logs"
-sudo rm -rf /Library/Logs/*
+run sudo rm -rf /Library/Logs/*
 echo "cleaning system logs from /var/log"
-sudo rm -rf /var/log/*
+run sudo rm -rf /var/log/*
 echo "cleaning from /private/var/folders"
-sudo rm -rf /private/var/folders/*
+run sudo rm -rf /private/var/folders/*
 
 #ios photo caches
 echo "cleaning ios photo caches"
-rm -rf ~/Pictures/iPhoto\ Library/iPod\ Photo\ Cache/*
+run rm -rf ~/Pictures/iPhoto\ Library/iPod\ Photo\ Cache/*
 
 #application caches
 echo "cleaning application caches"
-for x in $(ls ~/Library/Containers/) 
-do 
-    echo "cleaning ~/Library/Containers/$x/Data/Library/Caches/"
-    rm -rf ~/Library/Containers/$x/Data/Library/Caches/*
+for x in ~/Library/Containers/*/; do
+    echo "cleaning ${x}Data/Library/Caches/"
+    run rm -rf "${x}Data/Library/Caches/"*
 done
 
 # Cleaning up brew cache
 echo "cleaning brew cache"
-brew cleanup
+run brew cleanup
 
-echo 
+echo
 echo "Cache cleanup process completed"
